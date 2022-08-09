@@ -8,7 +8,13 @@
 #include <cinttypes>
 #include <cstdio>  // For FILE.
 #include <memory>
+// Fix for error LNK2001: unresolved external symbol
+//"public: class v8::internal::Object __cdecl
+//v8::internal::FixedArray::get(int)const "
+//(?get@FixedArray@internal@v8@@QEBA?AVObject@23@H@Z)
+//[.\node.js\tools\v8_gypfiles\mksnapshot.vcxproj
 #include "src/objects/fixed-array-inl.h"
+//-------------------
 #include "src/flags/flags.h"  // For ENABLE_CONTROL_FLOW_INTEGRITY_BOOL
 
 namespace v8 {

@@ -15,7 +15,13 @@
 #include "src/snapshot/embedded/embedded-data.h"
 #include "src/snapshot/embedded/embedded-file-writer-interface.h"
 #include "src/snapshot/embedded/platform-embedded-file-writer-base.h"
+// Fix for error LNK2001: unresolved external symbol
+//"public: class v8::internal::Object __cdecl
+//v8::internal::FixedArray::get(int)const "
+//(?get@FixedArray@internal@v8@@QEBA?AVObject@23@H@Z)
+//[.\node.js\tools\v8_gypfiles\mksnapshot.vcxproj
 #include "src/objects/fixed-array-inl.h"
+//-------------------
 
 #if defined(V8_OS_WIN64)
 #include "src/base/platform/wrappers.h"

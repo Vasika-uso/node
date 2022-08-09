@@ -8,7 +8,13 @@
 #include "src/base/macros.h"
 #include "src/common/globals.h"  // For V8_OS_WIN_X64
 #include "src/snapshot/embedded/platform-embedded-file-writer-base.h"
+// Fix for error LNK2001: unresolved external symbol
+//"public: class v8::internal::Object __cdecl
+//v8::internal::FixedArray::get(int)const "
+//(?get@FixedArray@internal@v8@@QEBA?AVObject@23@H@Z)
+//[.\node.js\tools\v8_gypfiles\mksnapshot.vcxproj
 #include "src/objects/fixed-array-inl.h"
+//-------------------
 namespace v8 {
 namespace internal {
 
