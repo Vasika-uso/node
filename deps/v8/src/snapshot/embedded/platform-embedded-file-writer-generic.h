@@ -8,7 +8,7 @@
 #include "src/base/macros.h"
 #include "src/common/globals.h"  // For V8_OS_WIN_X64
 #include "src/snapshot/embedded/platform-embedded-file-writer-base.h"
-
+#include "src/objects/fixed-array-inl.h"
 namespace v8 {
 namespace internal {
 

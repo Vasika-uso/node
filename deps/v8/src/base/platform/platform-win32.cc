@@ -16,7 +16,16 @@
 #endif  // __MINGW32__
 
 #include <windows.h>
+// Fix Error LNK2019	unresolved external symbol __imp_timeGetTime referenced in function
+// "public: void __cdecl v8::base::Win32Time::SetToCurrentTime(void)" (?SetToCurrentTime@Win32Time@base@v8@@QEAAXXZ)
+// torque-language-server .\node.js\tools\v8_gypfiles\v8_libbase.lib(platform-win32.obj)	1
 
+#pragma comment(lib, "secur32.lib")
+#pragma comment(lib, "winmm.lib")
+#pragma comment(lib, "dmoguids.lib")
+#pragma comment(lib, "wmcodecdspuuid.lib")
+#pragma comment(lib, "msdmo.lib")
+#pragma comment(lib, "Strmiids.lib")
 // This has to come after windows.h.
 #include <VersionHelpers.h>
 #include <dbghelp.h>   // For SymLoadModule64 and al.
@@ -366,6 +375,7 @@ void Win32Time::SetToCurrentTime() {
   TimeStamp time_now;
   GetSystemTimeAsFileTime(&time_now.ft_);
   DWORD ticks_now = timeGetTime();
+
 
   // Check if we need to resync due to clock rollover.
   needs_resync |= ticks_now < init_ticks;

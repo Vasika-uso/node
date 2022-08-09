@@ -15,6 +15,7 @@
 #include "src/snapshot/embedded/embedded-data.h"
 #include "src/snapshot/embedded/embedded-file-writer-interface.h"
 #include "src/snapshot/embedded/platform-embedded-file-writer-base.h"
+#include "src/objects/fixed-array-inl.h"
 
 #if defined(V8_OS_WIN64)
 #include "src/base/platform/wrappers.h"
